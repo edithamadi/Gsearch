@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-import { userservice } from '../services/user.service';
+import { UserService } from '../app/user.service';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 
@@ -9,6 +9,7 @@ import { UserComponent } from './user/user.component';
   declarations: [
    
     AppComponent,
+    HttpClientModule,
     UserComponent
   ],
   imports: [
