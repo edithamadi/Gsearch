@@ -1,3 +1,3 @@
 export class Repo {
-        constructor(public repo:string,public user:string){}
+        constructor(public name:string,public description:string,public created_at:Date ){}
     }
