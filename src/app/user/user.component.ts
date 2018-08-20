@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import {HttpClient} from '@angular/common/http'
-import {Repo} from '../../app/repo.ts'
-import { UserService } from '../app/user.service';
+import {Repo} from '../../app/repo'
+import { UserService } from '../user.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -26,11 +26,11 @@ export class UserComponent implements OnInit {
   }  
 
   this.http.get(" https://api.github.com/users/this.login ").subscribe(data=>)
-  this.repo= new Repo(data.repo,data.user)
-},err=>{
+
+  this.repo = new Repo(data.repo,data.user)
+}
+err => {
   this.repo=new Repo("request not found ")
     console.log("Error occured")
     })
   }
-
-}
