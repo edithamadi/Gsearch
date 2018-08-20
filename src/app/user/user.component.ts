@@ -29,6 +29,7 @@ export class UserComponent implements OnInit {
   this.repo= new Repo(data.repo,data.user)
 },err=>{
   this.repo=new Repo("request not found ")
+    console.log("Error occured")
     })
   }
 
