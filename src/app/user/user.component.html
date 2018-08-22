@@ -1,29 +1,52 @@
-<H1>GITHUB SEARCH</H1>
 
 
-<form action="" class="form">
-  <div class= "form-group">
-   <button>SEARCH</button>   <input type="text" class="form-control" placeholder= "   search user using username"> [(ngModel)]="username" name="username"(keyup)="findUser" 
-  </div>
-</form>
+<H1>&nbsp;&nbsp;GITHUB SEARCH</H1>
+
+
+
+<form  (keyup)="findUser()" #userForm = "ngForm">
+    <div class="form-group">
+    <input type="text" class="form-control" placeholder = " Enter Github username to search user details and repositories" [(ngModel)]="username" name = "username">
+    </div>
+  </form>
+  
+<br>
 
 <div *ngIf = "user">
   <div class = "panel panel-default">
-    <div class = "panel-heading">
-             {{user.name}}
-     <small> {{user.login}} </small>// shows username
-      
-    </div>
+    
     <div class = "panel-body">
-      div class = "row"
-      <div class = "col-sm-3">
-        <img src = "{{user.avatar_url}}" class = "img-circle img-responsive" alt = "profile image"
+      <div class = "row">
+
+      <div class = "col-md-6">
+        <img src = "{{user.avatar_url}}" class = "img-rounded" alt = "profile image">
       </div>
-      <div class = "col-sm-5">
-        <ul class = "list-group">
-          <li>{{user.name}}</li>
-        </ul>
+      <div class = "col-md-6">
+        &nbsp;<h1>NAME : {{user.name}}<br><br><br>&nbsp;USERNAME :<small> {{user.login}} </small><br><br><br>
+        &nbsp;FOLLOWING :  {{user.following}} <br><br><br>
+        &nbsp;FOLLOWERS :  {{user.followers}} </h1>
+      </div>
+       </div>
+      </div>
+    </div>
+   </div>
+   <br>
+<h1>&nbsp;&nbsp;REPOSITORIES</h1><br>
+        <div *ngIf = 'userService.newRepo'>
+      <div class="repositories" *ngFor="let repository of userService.newRepo">
+      <div>
+        <table style = "width:100%">
+         
+          <tr>
+            <td>
+              <ul>
+                <li><strong>&nbsp;&nbsp;{{repository.name}}</strong></li>
+              </ul>
+            </td>
+            <td><span>{{repository.description}}</span></td>
+            <td><span>{{repository.html_url}}</span></td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
-</div>
