@@ -1,36 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 
-import {HttpClient} from '@angular/common/http'
-import {Repo} from '../../app/repo'
+import {User} from '../User'
+import {HttpClient} from '@angular/common/http';
+import {Repo} from '../../app/repo';
 import { UserService } from '../user.service';
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   providers:[UserService],
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
+
 })
 export class UserComponent implements OnInit {
+  public searchEdith= 'edithamadi';
+  public gitUser:string;
 
-  users:any[];
-  repos:any[];
 
-  constructor(userService:UserService,private http:HttpClient) {
-  this.users = userService.getUsers()
-   }
+  user:User;
+  repo:Repo;
+  Searchresults:any;
+  username:string;
 
-  ngOnInit() { 
+  constructor(public userService:UserService) { }
   
-    interface ApiResponse{
-      repo:string;
-      user:string
-  }  
-
-  this.http.get(" https://api.github.com/users/this.login ").subscribe(data=>)
-
-  this.repo = new Repo(data.repo,data.user)
-}
-err => {
-  this.repo=new Repo("request not found ")
-    console.log("Error occured")
-    })
+  findUser(){
+    this.userService.updateProfile(this.username)
+    this.userService.getUserInfo(this.username)
+    this.gitUser = '';
+    this.searchEdith = this.username;
+    this.ngOnInit();
   }
+  
+
+  ngOnInit(){
+    this.userService.getUserInfo(this.searchEdith);
+    this.user = this.userService.user;
+
+    this.userService.getUserRepo(this.username);
+    this.Searchresults = this.userService.newRepo;
+  }
+}
