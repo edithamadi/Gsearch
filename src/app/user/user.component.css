@@ -1,0 +1,22 @@
+.img-rounded{
+    border-radius: 87px;
+}
+
+table {
+    text-align: center;
+    padding: 8px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    height:50px;
+    width:20% 50% 30%;
+}
+td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+    height: 50px;
+    width:20% 50% 30%;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}  
