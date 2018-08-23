@@ -12,8 +12,8 @@ import { Repo } from '../repo';
 export class RepoComponent implements OnInit {
   repo:Repo;
   constructor(private userService:UserService, public reposService:UserService) { }
-
+  
   ngOnInit() {
   }
-
+  
 }

@@ -10,18 +10,18 @@ import {Repo} from './repo';
 })
 
 export class UserService {
-user:User;
-private username:string
-repo:Repo;
-newRepo :any;
-
-
+  user:User;
+  private username:string
+  repo:Repo;
+  newRepo :any;
+  
+  
   constructor(private http:HttpClient) { 
-  this.user = new User('','','',0,'',0,0,'');
-  this.repo = new Repo('','','',);
-  this.username = 'edithamadi'
+    this.user = new User('','','',0,'',0,0,'');
+    this.repo = new Repo('','','',);
+    this.username = 'edithamadi'
   }
-
+  
   getUserInfo(username){
     interface ApiResponse{
       name:string;
@@ -33,7 +33,7 @@ newRepo :any;
       following:number;
       repos_url:string;
     }
-
+    
     const promise=new Promise((resolve,reject)=>{
       this.http.get<ApiResponse>(environment.apiUrl + this.username + environment.userapikey).toPromise().then(response =>{
         this.user.name=response.name;
@@ -46,11 +46,11 @@ newRepo :any;
         this.user.repos_url=response.repos_url;
         resolve()
       },
-
-      )
-    })
-    return promise;
-  }
+      
+    )
+  })
+  return promise;
+}
 
 getUserRepo(username){
   interface ApiResponse{
@@ -58,16 +58,16 @@ getUserRepo(username){
     description:string;
     html_url:string;
   }
-const promise=new Promise((resolve,reject)=>{
-  this.http.get<ApiResponse>(environment.apiUrl + this.username + environment.repositoryapikey).toPromise().then(response =>{
-
-    this.newRepo=response;
-    console.log(this.newRepo);
-
-    resolve()
-  },
-
-)
+  const promise=new Promise((resolve,reject)=>{
+    this.http.get<ApiResponse>(environment.apiUrl + this.username + environment.repositoryapikey).toPromise().then(response =>{
+      
+      this.newRepo=response;
+      console.log(this.newRepo);
+      
+      resolve()
+    },
+    
+  )
 })
 
 return promise;

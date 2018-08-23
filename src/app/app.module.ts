@@ -13,7 +13,7 @@ import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
-   
+    
     AppComponent,
     UserComponent,
     RepoComponent,

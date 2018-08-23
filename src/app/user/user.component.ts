@@ -10,18 +10,18 @@ import { UserService } from '../user.service';
   templateUrl: './user.component.html',
   providers:[UserService],
   styleUrls: ['./user.component.css'],
-
+  
 })
 export class UserComponent implements OnInit {
   public searchEdith= 'edithamadi';
   public gitUser:string;
-
-
+  
+  
   user:User;
   repo:Repo;
   Searchresults:any;
   username:string;
-
+  
   constructor(public userService:UserService) { }
   
   findUser(){
@@ -32,11 +32,11 @@ export class UserComponent implements OnInit {
     this.ngOnInit();
   }
   
-
+  
   ngOnInit(){
     this.userService.getUserInfo(this.searchEdith);
     this.user = this.userService.user;
-
+    
     this.userService.getUserRepo(this.username);
     this.Searchresults = this.userService.newRepo;
   }

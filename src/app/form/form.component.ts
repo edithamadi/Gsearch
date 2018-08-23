@@ -10,15 +10,15 @@ import { Form } from '../form';
 })
 export class FormComponent implements OnInit {
   username:''
-
+  
   findUser(){
     this.userService.getUserInfo(this.username);
     this.userService.getUserRepo(this.username);
     console.log(name)
   }
   constructor(private userService:UserService,private reposService:UserService) { }
-
+  
   ngOnInit() {
   }
-
+  
 }
