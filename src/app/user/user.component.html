@@ -31,7 +31,8 @@
     </div>
    </div>
    <br>
-<h1>&nbsp;&nbsp;REPOSITORIES</h1><br>
+
+   <h1><p appHighlight>&nbsp;&nbsp;REPOSITORIES</p></h1><br>
         <div *ngIf = 'userService.newRepo'>
       <div class="repositories" *ngFor="let repository of userService.newRepo">
       <div>
@@ -41,9 +42,13 @@
             <td>
     
             <strong>&nbsp;&nbsp;NAME : {{repository.name}}</strong><br><br>        
-            <strong>&nbsp;&nbsp;DESCRIPTION :</strong> <span>{{repository.description}}</span><br>
-            <strong> URL : </strong><span>{{repository.html_url}}</span>
-           </td> 
+            <strong>&nbsp;&nbsp;DESCRIPTION :   </strong> <span>{{repository.description}}</span>
+            <br><br>
+            
+            <strong>
+              <a href = "{{repository.html_url}}" target = "_blank">Click to view repository on Github</a>
+            </strong>
+            </td> 
           </tr>
         </table>
       </div>

@@ -15,8 +15,9 @@ td {
     text-align: center;
     padding: 8px;
     height: 50px;
-    width:20% 50% 30%;
+    font: 1em sans-serif;
 }
 tr:nth-child(even) {
     background-color: #dddddd;
 }  
+
