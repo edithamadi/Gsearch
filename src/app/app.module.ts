@@ -9,6 +9,7 @@ import { RepoComponent } from './repo/repo.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule } from '@angular/forms';
 import { HighlightDirective } from './highlight.directive';
+// import { ReversePipe } from './reverse.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HighlightDirective } from './highlight.directive';
     UserComponent,
     RepoComponent,
     FormComponent,
-    HighlightDirective
+    HighlightDirective,
+    // ReversePipe,
   ],
   imports: [
     BrowserModule,
